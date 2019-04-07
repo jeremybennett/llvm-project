@@ -43,6 +43,20 @@ Basic Building Instructions
 This will build a native C/C++ compiler that will generate
 executable code that you can run on your own machine.
 
+Short Version
+-------------
+
+   ::
+
+   git clone https://github.com/llvm/llvm-project.git
+   mkdir bd
+   cd bd
+   cmake ../llvm-project/llvm
+   make clang
+
+Detailed version
+----------------
+
 #. Check out the Clang/LLVM source tree.  On Linux the following command would
    be appropriate::
 
@@ -70,18 +84,14 @@ executable code that you can run on your own machine.
 
 #. Build the compiler.  On Linux use the following::
 
-   make
+   make clang
 
-#. After some minutes, you should have a built compiler.  Add it to your
-   search path.  On Linux with the *bash* shell, you could use the following::
+#. Take your favourite "Hello World" program in C, compile and run it.  On
+   Linux use the following::
 
-   PATH=$(pwd)/bin:$PATH
-
-#. Take your favourite "Hello World" program and compile and run it.  On Linux
-   use the following::
-
-   clang -o hello hello.c
+   ./bin/clang -o hello hello.c
    ./hello
 
 #. Congratulations!  You have successfully compiled and run your first program
    using the Clang/LLVM compiler build from source.
+
