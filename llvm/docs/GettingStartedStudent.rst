@@ -81,7 +81,7 @@ Detailed version
    and configure to build using standard makefiles.  On Linux use the
    following::
 
-   cmake -G "Unix Makefiles" ../llvm-project/llvm
+   cmake ../llvm-project/llvm
 
 #. Build the compiler.  On Linux use the following::
 
@@ -96,3 +96,65 @@ Detailed version
 #. Congratulations!  You have successfully compiled and run your first program
    using the Clang/LLVM compiler build from source.
 
+What can go wrong?
+==================
+
+CMake fails to generate the build scripts
+-----------------------------------------
+
+There are several reasons it can fail:
+
+#. CMake cannot detect compilers (`CMAKE_C_COMPILER` not set)
+
+   To fix this you may provide paths to the C and C++ compilers explicitly,
+   e.g. on Linux::
+
+     cmake -DCMAKE_C_COMPILER=/usr/bin/clang \
+           -DCMAKE_CXX_COMPILER=/usr/bin/clang++ ../llvm
+
+   Replace the `/usr/bin` with a value appropriate for your setup.
+
+#. CMake cannot find the make program (`CMAKE_MAKE_PROGRAM` is not set)
+
+   To fix this you need to provide the path to the make program, e.g. on Linux::
+
+     cmake -DCMAKE_MAKE_PROGRAM=/usr/bin/make ../llvm
+
+Build fails
+-----------
+
+You may get bad luck and check out the broken commit. Try checking out stable
+branch and run the build again.   On Linux use the following::
+
+  cd llvm
+  git checkout release_80
+
+Next Steps
+==========
+
+Build Systems
+-------------
+
+By default, CMake generates bunch of Makefiles, but it also supports other
+build systems controlled by the -G flag, e.g. on Linux::
+
+  cmake -G <build system> ../llvm
+
+Available options for the build system are:
+
+* `Ninja` --- for generating *Ninja* (https://ninja-build.org) build files.
+* `Unix Makefiles` --- for generating make-compatible parallel makefiles, this
+  is used by default.
+* `Visual Studio` --- for generating Visual Studio projects and solutions.
+* `Xcode` --- for generating Xcode projects
+
+CMake options
+-------------
+
+Various aspects of the build system can be controlled by CMake options. For
+example, to install Clang in `/opt/my-clang` you can do the following on Linux::
+
+  cmake -DCMAKE_INSTALL_PREFIX=/opt/my-clang ../llvm
+
+You can find all the available options [here](**TODO:** Link to the right
+webpage)
