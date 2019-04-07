@@ -46,11 +46,11 @@ executable code that you can run on your own machine.
 #. Check out the Clang/LLVM source tree.  On Linux the following command would
    be appropriate::
 
-   `git clone https://github.com/llvm/llvm-project.git`
+   git clone https://github.com/llvm/llvm-project.git
 
    While on Windows, you would need the following::
 
-   `git clone --config core.autocrlf=false https://github.com/llvm/llvm-project.git`
+   git clone --config core.autocrlf=false https://github.com/llvm/llvm-project.git
 
    **Note.** In the past Clang, the front end language processor,
    and LLVM, the back end code generator, had separate source trees, and this
@@ -60,28 +60,28 @@ executable code that you can run on your own machine.
    from the source tree.  Create a build tree alongside your checked out
    sources.  On Linux you could use the following::
 
-   `mkdir bd`
+   mkdir bd
 
 #. Configure the compiler ready for building.  Change to the build directory
    and configure to build using standard makefiles.  On Linux use the
    following::
 
-   `cmake -G "Unix Makefiles" ../llvm-project/llvm`
+   cmake -G "Unix Makefiles" ../llvm-project/llvm
 
 #. Build the compiler.  On Linux use the following::
 
-   `make`
+   make
 
 #. After some minutes, you should have a built compiler.  Add it to your
    search path.  On Linux with the *bash* shell, you could use the following::
 
-   `PATH=$(pwd)/bin:$PATH`
+   PATH=$(pwd)/bin:$PATH
 
 #. Take your favourite "Hello World" program and compile and run it.  On Linux
    use the following::
 
-   `clang -o hello hello.c`
-   `./hello`
+   clang -o hello hello.c
+   ./hello
 
 #. Congratulations!  You have successfully compiled and run your first program
    using the Clang/LLVM compiler build from source.
