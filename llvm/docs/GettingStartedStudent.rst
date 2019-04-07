@@ -33,8 +33,9 @@ Prequisites
 You should ensure you have the following installed:
 
 - a standard C/C++ compiler
-- *cmake*
-- *git*
+- GNU *make* (https://www.gnu.org/software/make/)
+- *cmake* (https://cmake.org/)
+- *git* (https://git-scm.com/)
 - *Visual Studio* (if you are using Microsoft Windows)
 
 Basic Building Instructions
@@ -46,7 +47,7 @@ executable code that you can run on your own machine.
 Short Version
 -------------
 
-   ::
+::
 
    git clone https://github.com/llvm/llvm-project.git
    mkdir bd
